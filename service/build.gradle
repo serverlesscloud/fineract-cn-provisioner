@@ -23,7 +23,7 @@ buildscript {
     repositories {
         jcenter()
     }
-    }
+}
 
 plugins {
     id 'com.github.hierynomus.license' version '0.13.1'
@@ -34,6 +34,7 @@ plugins {
     id 'maven-publish'
     id 'java'
     id 'idea'
+    id 'application'
 }
 
 apply from: '../shared.gradle'
@@ -42,6 +43,9 @@ bootRepackage {
     enabled = true
     classifier = 'boot'
 }
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
 
 dependencies {
     compile(
@@ -92,4 +96,9 @@ publishing {
             version project.findProperty('externalVersion') ?: project.version
         }
     }
+}
+
+application {
+    mainClassName = 'org.apache.fineract.cn.provisioner.ProvisionerApplication'
+
 }
