@@ -3,6 +3,8 @@
 **/build/
 **/target/
 **/out/
+bin/
+.vscode
 
 # Ignore Gradle GUI config
 gradle-app.setting
